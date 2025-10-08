@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .phone-list {
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto;
             padding: 0;
             list-style: none;
@@ -15,8 +15,8 @@
             background: #fff;
             border-radius: 14px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            padding: 20px 24px;
+            margin-bottom: 22px;
+            padding: 20px 28px;
             display: flex;
             align-items: center;
             transition: transform 0.2s ease;
@@ -30,7 +30,7 @@
             color: #2b2b8b;
             width: 60px;
             text-align: center;
-            margin-right: 18px;
+            margin-right: 20px;
             user-select: none;
         }
         .phone-details {
@@ -41,10 +41,31 @@
             font-size: 1.3em;
             color: #232946;
             margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        .phone-years {
+        .phone-year {
             color: #616a7a;
             font-style: italic;
+        }
+        .label-main {
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 0.9em;
+            background: #dbeafe;
+            padding: 4px 12px;
+            border-radius: 12px;
+            user-select: none;
+        }
+        .label-spare {
+            color: #9c27b0;
+            font-weight: 700;
+            font-size: 0.9em;
+            background: #f3e8ff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            user-select: none;
         }
         @media (max-width: 600px) {
             .phone-item {
@@ -53,6 +74,10 @@
             }
             .phone-icon {
                 margin-bottom: 8px;
+            }
+            .phone-model {
+                font-size: 1.15em;
+                gap: 6px;
             }
         }
     </style>
@@ -72,34 +97,29 @@
 </header>
 <div class="container">
     <ul class="phone-list">
-        <li class="phone-item">
-            <div class="phone-icon">📞</div>
-            <div class="phone-details">
-                <div class="phone-model">Nokia 1100</div>
-                <div class="phone-years">2011–2014</div>
-            </div>
-        </li>
-        <li class="phone-item">
-            <div class="phone-icon">📱</div>
-            <div class="phone-details">
-                <div class="phone-model">Samsung Galaxy Ace</div>
-                <div class="phone-years">2014–2017</div>
-            </div>
-        </li>
-        <li class="phone-item">
-            <div class="phone-icon">📱</div>
-            <div class="phone-details">
-                <div class="phone-model">Xiaomi Redmi 5 Plus</div>
-                <div class="phone-years">2018–2021</div>
-            </div>
-        </li>
-        <li class="phone-item">
-            <div class="phone-icon">📱</div>
-            <div class="phone-details">
-                <div class="phone-model">Xiaomi Redmi Note 7</div>
-                <div class="phone-years">2021–н.в.</div>
-            </div>
-        </li>
+        <li class="phone-item"><div class="phone-icon">📞</div><div class="phone-details"><div class="phone-model">Explay Surfer 777 3G <span class="phone-year">(2014)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📞</div><div class="phone-details"><div class="phone-model">ZTE Blade A3 <span class="phone-year">(2015)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📞</div><div class="phone-details"><div class="phone-model">Tele2 Mini <span class="phone-year">(2016)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Samsung Galaxy Ace 4 Neo <span class="phone-year">(2017)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Samsung Galaxy S4 Mini <span class="phone-year">(2018)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">BQ BQS-5020 Strike <span class="phone-year">(2019)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi Note 7 3/32 <span class="phone-year">(2020)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi 6 3/32 <span class="phone-year">(2020)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Huawei Honor 7A Pro <span class="phone-year">(2020)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Huawei Honor 7A <span class="phone-year">(2020)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Mi Note 3 6/128 <span class="phone-year">(2021)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Samsung Galaxy A5 2016 <span class="phone-year">(2021)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi 7 3/32 <span class="phone-year">(2022)</span> <span class="label-main">Основной</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Samsung Galaxy A10 2/32 <span class="phone-year">(2022)</span> <span class="label-main">Основной</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📞</div><div class="phone-details"><div class="phone-model">Nokia N73 <span class="phone-year">(2022)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi 10C 4/128 <span class="phone-year">(2023)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi 8 4/64 <span class="phone-year">(2024)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📞</div><div class="phone-details"><div class="phone-model">Nokia N8 <span class="phone-year">(2024)</span> <span class="label-spare">Запасной</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Samsung Galaxy S2 GT-I9100 <span class="phone-year">(2024)</span> <span class="label-spare">Запасной</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi Note 12 4G NFC 6/128 <span class="phone-year">(2024)</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Samsung Galaxy S7 Edge <span class="phone-year">(2024)</span> <span class="label-main">Основной</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Xiaomi Redmi Note 9S <span class="phone-year">(2025)</span> <span class="label-main">Основной</span></div></div></li>
+        <li class="phone-item"><div class="phone-icon">📱</div><div class="phone-details"><div class="phone-model">Apple iPad 2 16GB <span class="phone-year">(2025)</span> <span class="label-main">Основной</span></div></div></li>
     </ul>
 </div>
 </body>
