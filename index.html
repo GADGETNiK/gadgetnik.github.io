@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя Биография</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #f6f7fb;
+            color: #232946;
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.4s;
+        }
+        header {
+            background: linear-gradient(90deg, #232946 60%, #eebbc3 100%);
+            color: #fff;
+            text-align: center;
+            padding: 48px 20px 20px 20px;
+        }
+        header h1 {
+            font-size: 2.6em;
+            letter-spacing: 2px;
+            margin: 0 0 10px 0;
+        }
+        nav {
+            background: #232946;
+            display: flex; 
+            justify-content: center;
+            padding: 12px 0;
+        }
+        nav a {
+            color: #eebbc3;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .container {
+            max-width: 880px;
+            margin: 40px auto;
+            padding: 0 18px;
+        }
+        section {
+            margin-bottom: 42px;
+        }
+        h2 {
+            color: #232946;
+            font-size: 2em;
+            margin-bottom: 18px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(60, 45, 100, 0.08);
+            padding: 28px 22px;
+            margin-bottom: 24px;
+            transition: box-shadow 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 32px rgba(60, 45, 100, 0.13);
+        }
+        ul, ol {
+            margin-left: 25px;
+        }
+        .contacts {
+            background: #eebbc3;
+            color: #232946;
+            padding: 18px;
+            border-radius: 12px;
+        }
+        .photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #232946;
+            box-shadow: 0 0 12px #eebbc3;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 600px) {
+            header { padding: 32px 10px 10px 10px; }
+            h1 { font-size: 2em; }
+            nav { font-size: 0.95em; }
+            .container { padding: 0 5px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.imgur.com/8Km9tLL.png" class="photo" alt="Фотография">
+        <h1>Моя Биография</h1>
+        <p style="font-size: 1.25em; margin-bottom:0;">Добро пожаловать! Узнайте обо мне, моих устройствах и проектах.</p>
+    </header>
+    <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#devices">Мои устройства</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#firmwares">Сборки Android</a>
+        <a href="#phone-history">История телефонов</a>
+        <a href="#pc-history">История ПК</a>
+    </nav>
+    <div class="container">
+
+        <section id="about">
+            <div class="card">
+                <h2>Обо мне</h2>
+                <p>Меня зовут Иван. Занимаюсь разработкой Android-прошивок, интересуюсь техникой и сборкой ПК. Люблю программировать, хобби: электроника и фото.</p>
+            </div>
+        </section>
+
+        <section id="devices">
+            <div class="card">
+                <h2>Мои устройства</h2>
+                <ul>
+                    <li>Телефон: Xiaomi Redmi Note 7</li>
+                    <li>Ноутбук: Lenovo ThinkPad E14</li>
+                    <li>ПК: Ryzen 5, 16 GB RAM, GTX 1660 Super</li>
+                    <li>Планшет: Samsung Galaxy Tab S6 Lite</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contacts">
+            <div class="card contacts">
+                <h2>Контакты</h2>
+                <ul>
+                    <li>Email: example@mail.com</li>
+                    <li>Telegram: @username</li>
+                    <li>VK: vk.com/yourprofile</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="firmwares">
+            <div class="card">
+                <h2>Мои сборки Android-прошивок</h2>
+                <ol>
+                    <li>Paranoid Android 10 для Redmi Note 7 (2023)</li>
+                    <li>Pixel Experience для Redmi 5 Plus (2022)</li>
+                    <li>CrDroid для Redmi Note 5 (2021)</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="phone-history">
+            <div class="card">
+                <h2>История моих телефонов</h2>
+                <ul>
+                    <li>Nokia 1100 (2011–2014)</li>
+                    <li>Samsung Galaxy Ace (2014–2017)</li>
+                    <li>Xiaomi Redmi 5 Plus (2018–2021)</li>
+                    <li>Xiaomi Redmi Note 7 (2021–н.в.)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="pc-history">
+            <div class="card">
+                <h2>История ПК</h2>
+                <ol>
+                    <li>HP Pavilion (Pentium, 2GB RAM) 2013–2016</li>
+                    <li>Lenovo ThinkCentre M75s (AMD A12-9800, 8GB) 2016–2024</li>
+                    <li>Custom PC (Ryzen 5, 16GB RAM) 2024–н.в.</li>
+                </ol>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
