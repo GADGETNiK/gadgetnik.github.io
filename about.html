@@ -2,419 +2,206 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Обо мне — Креативное оформление с подгрузкой header</title>
+  <title>Обо мне</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Стили страницы "Обо мне" с фото, соцсетями и дополнительной анимацией */
-    .about-container {
-      max-width: 860px;
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg-light, #f6f7fb);
+      color: var(--text-light, #232946);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: var(--bg-dark, #181829);
+      color: var(--text-dark, #e6eaf3);
+    }
+    .container {
+      max-width: 720px;
       margin: 40px auto;
-      padding: 0 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      justify-content: center;
+      padding: 0 12px;
     }
-    .photo-block {
-      flex: 1 1 260px;
-      max-width: 300px;
-      text-align: center;
-      border-radius: 14px;
-      box-shadow: 0 4px 24px rgba(20, 35, 70, 0.12);
-      overflow: hidden;
-      background: var(--card-bg-light);
-      transition: background 0.3s;
-      cursor: default;
-      user-select: none;
-      position: relative;
-    }
-    body.dark .photo-block {
-      background: var(--card-bg-dark);
-      box-shadow: 0 6px 30px rgba(50, 70, 110, 0.7);
-    }
-    .photo-block img {
-      width: 100%;
-      height: auto;
-      border-bottom: 3px solid var(--label-main-color-light);
-      transition: border-color 0.3s;
-    }
-    body.dark .photo-block img {
-      border-color: var(--label-main-color-dark);
-    }
-    .photo-caption {
-      padding: 14px 16px 20px;
+    h1, h2 {
       font-weight: 700;
-      font-size: 1.16em;
-      color: var(--text-light);
-    }
-    body.dark .photo-caption {
-      color: var(--text-dark);
-    }
-    .badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: var(--main-label-light);
-      color: var(--main-color-light);
-      padding: 5px 14px;
-      border-radius: 12px 0 12px 0;
-      font-weight: 700;
-      font-size: 0.9em;
-      user-select: none;
-      box-shadow: 0 2px 10px rgba(30, 60, 110, 0.12);
-      transition: background 0.3s, color 0.3s;
-    }
-    body.dark .badge {
-      background: var(--main-label-dark);
-      color: var(--main-color-dark);
-      box-shadow: 0 4px 14px rgba(50, 90, 150, 0.6);
-    }
-    .about-cards {
-      flex: 2 1 540px;
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-    }
-    .about-card {
-      background: var(--card-bg-light);
-      padding: 26px 32px;
-      border-radius: 14px;
-      box-shadow: var(--card-shadow-light);
-      transition: background 0.3s, color 0.3s;
-      position: relative;
-    }
-    body.dark .about-card {
-      background: var(--card-bg-dark);
-      box-shadow: var(--card-shadow-dark);
-      color: var(--text-dark);
-    }
-    .about-card h3 {
-      margin: 0 0 15px 0;
-      color: var(--label-main-color-light);
-      font-size: 1.32em;
-      position: relative;
-      user-select: none;
-    }
-    body.dark .about-card h3 {
-      color: var(--label-main-color-dark);
-    }
-    .about-card p, .about-card ul {
-      font-size: 1.05em;
-      line-height: 1.6;
+      margin-bottom: 20px;
       color: inherit;
     }
-    .about-card ul {
-      padding-left: 20px;
+    p {
+      font-size: 1.05em;
+      line-height: 1.5;
+      margin-bottom: 16px;
     }
-    .about-card ul li {
-      margin-bottom: 10px;
-      position: relative;
+    ul {
+      padding-left: 0;
+      margin-bottom: 20px;
       list-style: none;
-      padding-left: 25px;
+    }
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1em;
       cursor: default;
     }
-    .about-card ul li::before {
-      content: "✔";
-      font-weight: 700;
-      color: var(--label-main-color-light);
-      position: absolute;
-      left: 0;
-      top: 1px;
-      font-size: 1.1em;
-      line-height: 1;
-      transition: color 0.3s;
+    li svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--main-color-light, #1e40af);
+      flex-shrink: 0;
+      transition: fill 0.3s;
     }
-    body.dark .about-card ul li::before {
-      color: var(--label-main-color-dark);
+    body.dark li svg {
+      fill: var(--main-color-dark, #a5d8ff);
     }
-    a.link {
-      color: var(--main-color-light);
+    a {
+      color: var(--main-color-light, #1e40af);
+      font-weight: 600;
       text-decoration: none;
-      font-weight: 700;
       transition: color 0.3s;
     }
-    body.dark a.link {
-      color: var(--main-color-dark);
+    body.dark a {
+      color: var(--main-color-dark, #a5d8ff);
     }
-    a.link:hover, a.link:focus {
+    a:hover, a:focus {
       text-decoration: underline;
       outline: none;
     }
-    /* Анимация появления */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(25px);
-      animation: fadeInUp 0.9s forwards;
-    }
-    .fade-in.delay-1 { animation-delay: 0.2s; }
-    .fade-in.delay-2 { animation-delay: 0.4s; }
-    .fade-in.delay-3 { animation-delay: 0.6s; }
-    .fade-in.delay-4 { animation-delay: 0.8s; }
-    .fade-in.delay-5 { animation-delay: 1s; }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    /* Социальные иконки */
-    .social-links {
-      margin-top: 20px;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      user-select: none;
-    }
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
+    .profile-image {
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      background-color: var(--card-bg-light);
-      color: var(--main-color-light);
-      font-size: 24px;
-      text-decoration: none;
-      box-shadow: 0 2px 10px rgba(60, 45, 100, 0.1);
-      transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    body.dark .social-links a {
-      background-color: var(--card-bg-dark);
-      color: var(--main-color-dark);
-      box-shadow: 0 2px 12px rgba(40, 60, 110, 0.4);
-    }
-    .social-links a:hover,
-    .social-links a:focus {
-      background-color: var(--main-color-light);
-      color: #fff;
-      outline: none;
-      transform: scale(1.12);
-      box-shadow: 0 6px 24px rgba(60, 45, 100, 0.25);
-    }
-    body.dark .social-links a:hover,
-    body.dark .social-links a:focus {
-      background-color: var(--main-color-dark);
-      box-shadow: 0 6px 24px rgba(40, 60, 110, 0.8);
-    }
-    /* Подписи при наведении (tooltip) */
-    .tooltip {
-      position: relative;
-      cursor: pointer;
-    }
-    .tooltip::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--card-bg-light);
-      color: var(--text-light);
-      padding: 6px 12px;
-      border-radius: 8px;
-      white-space: nowrap;
-      font-size: 0.85em;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      object-fit: cover;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(30,45,90,0.15);
+      transition: box-shadow 0.3s;
       user-select: none;
-      z-index: 20;
     }
-    body.dark .tooltip::after {
-      background: var(--card-bg-dark);
-      color: var(--text-dark);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+    body.dark .profile-image {
+      box-shadow: 0 6px 26px rgba(50,70,110,0.7);
     }
-    .tooltip:hover::after,
-    .tooltip:focus::after {
-      opacity: 1;
-      pointer-events: auto;
+    #theme-toggle {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--main-color-light, #1e40af);
+      transition: color 0.3s;
+      user-select: none;
+      z-index: 1000;
     }
-    /* Адаптивность */
-    @media (max-width: 900px) {
-      .about-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 22px;
-      }
-      .photo-block, .about-cards {
-        max-width: 90vw;
-        flex: 1 1 auto;
-      }
-      .about-cards {
-        gap: 22px;
-      }
-    .social-links-scroll {
-        position: relative;
-        display: flex;
-        align-items: center;
-        max-width: 100%;
-        }
-
-    .social-links {
-        display: flex;
-        gap: 16px;
-        overflow-x: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--main-color-light) transparent;
-        -webkit-overflow-scrolling: touch;
-        padding: 8px 0;
-        }
-
-    .social-links::-webkit-scrollbar {
-        height: 6px;
-        }
-
-    .social-links::-webkit-scrollbar-thumb {
-        background-color: var(--main-color-light);
-        border-radius: 10px;
-        }
-
-    body.dark .social-links {
-        scrollbar-color: var(--main-color-dark) transparent;
-        }
-
-    .scroll-btn {
-        background: var(--card-bg-light);
-        border: none;
-        width: 32px;
-        height: 36px;
-        cursor: pointer;
-        user-select: none;
-        font-size: 24px;
-        line-height: 36px;
-        color: var(--main-color-light);
-        border-radius: 6px;
-        margin: 0 6px;
-        transition: background-color 0.3s;
-        flex-shrink: 0;
-        }
-
-    .scroll-btn:hover,
-    .scroll-btn:focus {
-        background-color: var(--main-label-light);
-        outline: none;
-        }
-
-    body.dark .scroll-btn {
-        background: var(--card-bg-dark);
-        color: var(--main-color-dark);
-        }
-
-    body.dark .scroll-btn:hover,
-    body.dark .scroll-btn:focus {
-        background-color: var(--main-label-dark);
-        }
-        
+    body.dark #theme-toggle {
+      color: var(--main-color-dark, #a5d8ff);
     }
   </style>
 </head>
 <body>
-  <!-- Загружается динамический header -->
   <div id="header-placeholder"></div>
 
-  <div class="container about-container">
+  <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
 
-    <div class="photo-block fade-in">
-      <img src="https://sun9-25.userapi.com/s/v1/ig2/eq8bteMlfaSc6owQl1iJJWlAxF84zILVaxVUww-I-LrTUXxDsYdxd6RrV__Na1FOiRaMunASlWQRsoIgH2p8Z8nZ.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&from=bu&cs=640x0" alt="Фото Ивана" />
-      <div class="photo-caption">Алексей Севастьянов</div>
-      <div class="badge">Энтузиаст</div>
+  <div class="container">
+    <h1>Обо мне</h1>
+    <img src="https://i.imgur.com/8Km9tLL.png" alt="Фото Ивана" class="profile-image" />
 
-      <div class="social-links-scroll">
-        <button class="scroll-btn left" aria-label="Прокрутить влево">‹</button>
-        <div class="social-links">
-            <a href="https://vk.com/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="VK" aria-label="VK">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12.001 12.543c.17 0 .517-.486.88-1.123.251-.42.371-.765.394-1.071.012-.171-.072-.256-.255-.256h-.9c-.19 0-.298.126-.367.27-.303.692-1.02 2.056-1.68 2.98-.157.227-.297.4-.405.4-.028 0-.05-.015-.05-.05v-4.187c0-.143.01-.258.026-.31.108-.407.604-.664 1.799-1.004l.044-.011c.115-.026.174-.083.21-.174v-.24c0-.098-.069-.158-.246-.158H8.5c-.136 0-.206.036-.23.156-.14.677-1.504 4.004-2.72 5.6-.29.397-.554.6-.683.6h-.267c-.154 0-.23-.08-.23-.272v-4.21c0-.185.046-.31.124-.317h1.625c.14 0 .23.056.23.184 0 .038-.01.07-.03.1-.068.21-.075.27-.153.49-.07.183-.168.26-.312.26-.146 0-.28-.09-.28-.27 0-.213.273-.943.546-1.55.269-.603.515-.88.74-.88z"/></svg>
-            </a>
-            <a href="https://openvk.org/user/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="OpenVK" aria-label="OpenVK">
-            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                ircle cx="12" cy="12" r r="10" /><text x="12" y="16" font-size="12" font-weight="700" text-anchor="middle" fill="white" font-family="Arial, sans-serif">OK</text>
-            </svg>
-            </a>
-            <a href="https://t.me/username" class="tooltip" target="_blank" rel="noopener" data-tooltip="Telegram" aria-label="Telegram">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M9.99 15.69l-.38 4.64c.54 0 .78-.23 1.05-.51l2.52-2.39 5.23 3.84c.96.53 1.65.25 1.9-.87L22 6.97c.3-1.39-.51-1.99-1.42-1.62L3.99 11.4c-1.38.53-1.37 1.3-.24 1.63z"/></svg>
-            </a>
-            <a href="https://osu.ppy.sh/users/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="Osu!" aria-label="Osu!">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 100 100">ircle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeke-width="8"/>ircle cx="50" cy="50" r="20" fill="="currentColor"/></svg>
-            </a>
-            <a href="https://github.com/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="GitHub" aria-label="GitHub">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.298 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 17.67 3.633 17.4 3.633 17.4c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.234 1.838 1.234 1.07 1.834 2.805 1.304 3.49.997.108-.775.417-1.306.76-1.605-2.665-.308-5.466-1.33-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.49 11.49 0 0 1 3-.405c1.02.005 2.04.138 3 .404 2.28-1.553 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.605-2.805 5.616-5.475 5.916.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
-            <a href="https://steamcommunity.com/id/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="Steam" aria-label="Steam">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><rcle cx="12" cy="12" r="="10" /><path fill="black" d="M9 15l-5-3 4-6 6 3v8z"/></svg>
-            </a>
-            <a href="https://www.twitch.tv/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="Twitch" aria-label="Twitch">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4v16h6v3l4-3h6V4z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="YouTube" aria-label="YouTube">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M10 15l5-3-5-3z"/><rect width="20" height="14" x="2" y="5" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            </a>
-            <a href="https://4pda.ru/forum/index.php?act=Profile&CODE=03&MID=yourprofileid" class="tooltip" target="_blank" rel="noopener" data-tooltip="4PDA" aria-label="4PDA">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><rcle cx="12" cy="12" r="="10" /><path d="M3 12h18"/></svg>
-            </a>
-            <a href="https://forum.xda-developers.com/member.php?u=yourprofileid" class="tooltip" target="_blank" rel="noopener" data-tooltip="XDA" aria-label="XDA">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3" ry="3"/></svg>
-            </a>
-            <a href="https://shikimori.one/users/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="Shikimori" aria-label="Shikimori">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><rcle cx="12" cy="12" r="="10"/></svg>
-            </a>
-            <a href="https://wormixtest.ru/profile/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="Wormixtest" aria-label="Wormixtest">
-            <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
-            </a>
-        </div>
-        <button class="scroll-btn right" aria-label="Прокрутить вправо">›</button>
-        </div>
+    <h2>Привет! Я — Иван</h2>
+    <p>Разработчик Android-прошивок и инженер по сборке ПК с опытом более 5 лет. Активно изучаю Linux и люблю экспериментировать с новыми технологиями.</p>
 
-    </div>
+    <h2>Образование</h2>
+    <ul>
+      <li>🎓 Бакалавр компьютерных наук, МГУ</li>
+      <li>📚 Курсы Android-разработки и системного администрирования</li>
+    </ul>
 
-    <div class="about-cards">
-      <section class="about-card fade-in delay-1">
-        <h3>Привет! Я — Иван</h3>
-        <p>Разработчик Android-прошивок, инженер по сборке ПК и страстный пользователь Linux. Люблю программировать, экспериментировать с техникой и делать всё своими руками.</p>
-      </section>
+    <h2>Навыки</h2>
+    <ul>
+      <li>📱 Android Custom ROM и программирование на Java/Kotlin</li>
+      <li>🖥️ Администрирование Linux-систем</li>
+      <li>🛠️ Сборка и оптимизация ПК</li>
+    </ul>
 
-      <section class="about-card fade-in delay-2">
-        <h3>Образование и опыт</h3>
-        <ul>
-          <li>Бакалавр компьютерных наук, МГУ, 2015–2019</li>
-          <li>Курсы системного администрирования и Android-разработки</li>
-          <li>5+ лет опыта в кастомизации Android и сборке компьютеров</li>
-        </ul>
-      </section>
+    <h2>Социальные сети</h2>
+    <ul>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.001 12.543c.17 0 .517-.486.88-1.123.251-.42.371-.765.394-1.071.012-.171-.072-.256-.255-.256h-.9c-.19 0-.298.126-.367.27-.303.692-1.02 2.056-1.68 2.98-.157.227-.297.4-.405.4-.028 0-.05-.015-.05-.05v-4.187c0-.143.01-.258.026-.31.108-.407.604-.664 1.799-1.004l.044-.011c.115-.026.174-.083.21-.174v-.24c0-.098-.069-.158-.246-.158H8.5c-.136 0-.206.036-.23.156-.14.677-1.504 4.004-2.72 5.6-.29.397-.554.6-.683.6h-.267c-.154 0-.23-.08-.23-.272v-4.21c0-.185.046-.31.124-.317h1.625c.14 0 .23.056.23.184 0 .038-.01.07-.03.1-.068.21-.075.27-.153.49-.07.183-.168.26-.312.26-.146 0-.28-.09-.28-.27 0-.213.273-.943.546-1.55.269-.603.515-.88.74-.88z"/></svg>
+        <a href="https://vk.com/yourprofile" target="_blank" rel="noopener noreferrer">VK</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10" /><text x="12" y="16" font-size="12" font-weight="700" fill="white" text-anchor="middle" font-family="Arial, sans-serif">OK</text></svg>
+        <a href="https://openvk.org/user/yourprofile" target="_blank" rel="noopener noreferrer">OpenVK</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.99 15.69l-.38 4.64c.54 0 .78-.23 1.05-.51l2.52-2.39 5.23 3.84c.96.53 1.65.25 1.9-.87L22 6.97c.3-1.39-.51-1.99-1.42-1.62L3.99 11.4c-1.38.53-1.37 1.3-.24 1.63z"/></svg>
+        <a href="https://t.me/username" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" fill="none"/><circle cx="50" cy="50" r="20" fill="currentColor"/></svg>
+        <a href="https://osu.ppy.sh/users/yourprofile" target="_blank" rel="noopener noreferrer">Osu!</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.298 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 17.67 3.633 17.4 3.633 17.4c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.234 1.838 1.234 1.07 1.834 2.805 1.304 3.49.997.108-.775.417-1.306.76-1.605-2.665-.308-5.466-1.33-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.49 11.49 0 0 1 3-.405c1.02.005 2.04.138 3 .404 2.28-1.553 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.605-2.805 5.616-5.475 5.916.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path fill="black" d="M9 15l-5-3 4-6 6 3v8z"/></svg>
+        <a href="https://steamcommunity.com/id/yourprofile" target="_blank" rel="noopener noreferrer">Steam</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4v16h6v3l4-3h6V4z"/></svg>
+        <a href="https://www.twitch.tv/yourprofile" target="_blank" rel="noopener noreferrer">Twitch</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5-3-5-3z"/><rect width="20" height="14" x="2" y="5" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <a href="https://www.youtube.com/@yourprofile" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M3 12h18"/></svg>
+        <a href="https://4pda.ru/forum/index.php?act=Profile&CODE=03&MID=yourprofileid" target="_blank" rel="noopener noreferrer">4PDA</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="3" ry="3"/></svg>
+        <a href="https://forum.xda-developers.com/member.php?u=yourprofileid" target="_blank" rel="noopener noreferrer">XDA</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+        <a href="https://shikimori.one/users/yourprofile" target="_blank" rel="noopener noreferrer">Shikimori</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v16H4z"/></svg>
+        <a href="https://wormixtest.ru/profile/yourprofile" target="_blank" rel="noopener noreferrer">Wormixtest</a>
+      </li>
+    </ul>
 
-      <section class="about-card fade-in delay-3">
-        <h3>Навыки</h3>
-        <ul>
-          <li>Создание и поддержка Android-прошивок</li>
-          <li>Программирование на Java, Kotlin, Python</li>
-          <li>Администрирование серверов и OS Linux</li>
-          <li>Оптимизация и сборка ПК</li>
-        </ul>
-      </section>
-
-      <section class="about-card fade-in delay-4">
-        <h3>Хобби и интересы</h3>
-        <p>Фотография, электроника, путешествия и участие в сообществах open-source.</p>
-      </section>
-
-      <section class="about-card fade-in delay-5">
-        <h3>Связаться со мной</h3>
-        <p>Пиши на <a href="mailto:example@mail.com" class="link">example@mail.com</a> или в <a href="https://t.me/username" target="_blank" rel="noopener noreferrer" class="link">Telegram</a>.</p>
-      </section>
-    </div>
+    <h2>Связаться</h2>
+    <p>Пишите на почту <a href="mailto:example@mail.com">example@mail.com</a> или в <a href="https://t.me/username" target="_blank" rel="noopener noreferrer">Telegram</a>.</p>
   </div>
 
   <script>
-    // Динамичная подгрузка header.html
     fetch('header.html')
-      .then(response => response.text())
+      .then(res => res.text())
       .then(html => {
         document.getElementById('header-placeholder').innerHTML = html;
-        // Инициализировать переключатель темы из внешнего скрипта
         if(window.initThemeToggle) initThemeToggle();
       });
+
+    const toggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark');
+      toggleButton.textContent = '🌞';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      toggleButton.textContent = isDark ? '🌞' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
   </script>
 
   <script src="theme-toggle.js"></script>
