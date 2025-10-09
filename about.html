@@ -13,40 +13,36 @@
       background: var(--bg-light, #f6f7fb);
       color: var(--text-light, #232946);
       transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
     }
     body.dark {
       background: var(--bg-dark, #181829);
       color: var(--text-dark, #e6eaf3);
     }
-
     #header-placeholder {
       background: transparent;
     }
-
     .container {
       max-width: 720px;
       margin: 40px auto;
-      padding: 0 12px;
-      min-height: 100%; /* расширяет до полной высоты окна */
+      padding: 0 12px 40px 12px; /* отступ снизу для комфорта */
+      min-height: calc(100vh - 40px * 2); /* учёт margin сверху/снизу */
+      background: transparent;
       box-sizing: border-box;
-      background: transparent; /* прозрачный, фон body виден */
     }
     body.dark .container {
       background: transparent;
     }
-
     h1, h2 {
       font-weight: 700;
       margin-bottom: 20px;
       color: inherit;
     }
-
     p {
       font-size: 1.05em;
       line-height: 1.5;
       margin-bottom: 16px;
     }
-
     ul {
       padding-left: 20px;
       margin-bottom: 20px;
@@ -55,7 +51,6 @@
       margin-bottom: 8px;
       font-size: 1em;
     }
-
     a {
       color: var(--main-color-light, #1e40af);
       font-weight: 600;
@@ -69,7 +64,6 @@
       text-decoration: underline;
       outline: none;
     }
-
     .profile-image {
       width: 180px;
       height: 180px;
@@ -84,7 +78,6 @@
     body.dark .profile-image {
       box-shadow: 0 6px 26px rgba(50,70,110,0.7);
     }
-
     #theme-toggle {
       position: fixed;
       top: 12px;
