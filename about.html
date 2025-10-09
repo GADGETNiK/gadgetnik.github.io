@@ -5,99 +5,17 @@
   <title>Обо мне</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0; padding: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--bg-color-light, #f6f7fb);
-      color: var(--text-color-light, #232946);
-      transition: background 0.3s, color 0.3s;
-      min-height: 100vh;
-    }
-    body.dark {
-      background: var(--bg-color-dark, #181829);
-      color: var(--text-color-dark, #e6eaf3);
-    }
-    main.container {
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 12px 40px 12px;
-      min-height: calc(100vh - 80px);
-      background: transparent;
-      box-sizing: border-box;
-    }
-    h1, h2 {
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: inherit;
-    }
-    p {
-      font-size: 1.05em;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-    ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-    li {
-      margin-bottom: 8px;
-      font-size: 1em;
-    }
-    a {
-      color: var(--label-main-color-light, #1e40af);
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    body.dark a {
-      color: var(--label-main-color-dark, #a5d8ff);
-    }
-    a:hover, a:focus {
-      text-decoration: underline;
-      outline: none;
-    }
-    .profile-image {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 28px;
-      box-shadow: 0 4px 18px rgba(30,45,90,0.15);
-      transition: box-shadow 0.3s;
-    }
-    body.dark .profile-image {
-      box-shadow: 0 6px 26px rgba(50,70,110,0.7);
-    }
-    #theme-toggle {
-      position: fixed;
-      top: 12px;
-      right: 16px;
-      background: none;
-      border: none;
-      font-size: 26px;
-      cursor: pointer;
-      color: var(--label-main-color-light, #1e40af);
-      transition: color 0.3s;
-      user-select: none;
-      z-index: 1000;
-    }
-    body.dark #theme-toggle {
-      color: var(--label-main-color-dark, #a5d8ff);
-    }
-  </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
-    <script>
+  <div id="header-placeholder"></div>
+  <script>
     fetch('header.html')
-        .then(r => r.text())
-        .then(t => {
-        document.getElementById('header-placeholder').innerHTML = t;
-        });
-    </script>
-    <script src="theme-toggle.js"></script>
+    .then(r => r.text())
+    .then(t => {
+    document.getElementById('header-placeholder').innerHTML = t;
+    });
+  </script>
+  <script src="theme-toggle.js"></script>
   <main class="container">
     <h1>Обо мне</h1>
     <img src="https://i.imgur.com/8Km9tLL.png" alt="Фото Ивана" class="profile-image" />
