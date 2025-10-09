@@ -2,20 +2,21 @@
   --bg-color-light: #f6f7fb;
   --text-color-light: #232946;
   --card-bg-light: #fff;
-  --card-shadow-light: rgba(60, 45, 100, 0.08);
+  --card-shadow-light: rgba(60, 45, 100, 0.10);
   --label-main-bg-light: #dbeafe;
   --label-spare-bg-light: #f3e8ff;
   --label-main-color-light: #1e40af;
   --label-spare-color-light: #9c27b0;
 
   --bg-color-dark: #1e1e2f;
-  --text-color-dark: #cbd5e1;
-  --card-bg-dark: #2a2a3a;
-  --card-shadow-dark: rgba(0, 0, 0, 0.5);
+  --text-color-dark: #e6eaf3;
+  --header-bg-dark: #181829;
+  --card-bg-dark: #23243a;
+  --card-shadow-dark: 0 8px 32px rgba(60,120,220,0.12);
   --label-main-bg-dark: #334155;
   --label-spare-bg-dark: #5b21b6;
-  --label-main-color-dark: #dbeafe;
-  --label-spare-color-dark: #e9d5ff;
+  --label-main-color-dark: #a5d8ff;
+  --label-spare-color-dark: #f3e8ff;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
   color: var(--text-color-light);
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0; padding: 0;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 body.dark {
@@ -35,15 +36,21 @@ header {
   background: var(--card-bg-light);
   color: var(--text-color-light);
   text-align: center;
-  padding: 30px 15px 10px;
+  padding: 28px 50px 12px 15px;
   box-shadow: 0 2px 14px var(--card-shadow-light);
-  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
 }
 
 body.dark header {
-  background: var(--card-bg-dark);
+  background: var(--header-bg-dark);
   color: var(--text-color-dark);
-  box-shadow: 0 2px 14px var(--card-shadow-dark);
+  box-shadow: 0 2px 14px #222846;
+}
+
+nav {
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 nav a {
@@ -63,12 +70,34 @@ nav a:hover {
   text-decoration: underline;
 }
 
+#theme-toggle {
+  position: absolute;
+  top: 19px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--label-main-color-light);
+  transition: color 0.3s;
+  user-select: none;
+}
+
+body.dark #theme-toggle {
+  color: var(--label-main-color-dark);
+}
+
+#theme-toggle:focus {
+  outline: 2px solid #a5d8ff;
+}
+
 .container {
-  max-width: 720px;
+  max-width: 800px;
   margin: 40px auto;
   padding: 0 18px;
 }
 
+/* Список телефонов */
 ul.phone-list {
   list-style: none;
   padding: 0;
@@ -76,24 +105,28 @@ ul.phone-list {
 }
 
 li.phone-item {
-  background-color: var(--card-bg-light);
+  background: var(--card-bg-light);
+  color: inherit;
   border-radius: 14px;
   box-shadow: 0 2px 12px var(--card-shadow-light);
   margin-bottom: 22px;
-  padding: 20px 30px;
+  padding: 20px 31px;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s ease;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s, border 0.3s;
+  border: 1px solid #e4eaff;
 }
 
 li.phone-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px var(--card-shadow-light);
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 8px 32px rgba(60, 45, 100, 0.14);
 }
 
 body.dark li.phone-item {
-  background-color: var(--card-bg-dark);
-  box-shadow: 0 2px 12px var(--card-shadow-dark);
+  background: var(--card-bg-dark);
+  color: var(--text-color-dark);
+  box-shadow: var(--card-shadow-dark);
+  border: 1px solid #32405e;
 }
 
 .phone-icon {
@@ -107,11 +140,9 @@ body.dark li.phone-item {
 .platform-ios {
   color: #a2aaad;
 }
-
 .platform-android {
   color: #3ddc84;
 }
-
 .platform-symbian {
   color: #666666;
 }
@@ -122,92 +153,103 @@ body.dark li.phone-item {
 
 .phone-model {
   font-weight: 700;
-  font-size: 1.3em;
+  font-size: 1.26em;
   color: inherit;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  transition: color 0.3s;
+}
+body.dark .phone-model {
+  color: var(--text-color-dark);
 }
 
 .phone-year {
   color: #616a7a;
   font-style: italic;
+  font-weight: 500;
+  transition: color 0.3s;
 }
-
 body.dark .phone-year {
   color: #a0aec0;
 }
 
 .label-main {
   font-weight: 700;
-  font-size: 0.9em;
-  padding: 4px 12px;
+  font-size: 0.91em;
+  padding: 4px 14px;
   border-radius: 12px;
-  user-select: none;
   color: var(--label-main-color-light);
   background: var(--label-main-bg-light);
   white-space: nowrap;
+  margin-left: 10px;
 }
-
 .label-spare {
   font-weight: 700;
-  font-size: 0.9em;
-  padding: 4px 12px;
+  font-size: 0.91em;
+  padding: 4px 14px;
   border-radius: 12px;
-  user-select: none;
   color: var(--label-spare-color-light);
   background: var(--label-spare-bg-light);
   white-space: nowrap;
+  margin-left: 10px;
 }
-
 body.dark .label-main {
-  color: var(--label-main-color-dark);
   background: var(--label-main-bg-dark);
+  color: var(--label-main-color-dark);
 }
-
 body.dark .label-spare {
-  color: var(--label-spare-color-dark);
   background: var(--label-spare-bg-dark);
+  color: var(--label-spare-color-dark);
 }
 
-/* Кнопка переключения темы */
-#theme-toggle {
-  position: fixed;
-  top: 14px;
-  right: 16px;
+section {
   background: var(--card-bg-light);
-  border: none;
-  padding: 10px 16px;
-  border-radius: 18px;
-  font-weight: 600;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: 0 2px 8px var(--card-shadow-light);
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  z-index: 100;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px var(--card-shadow-light);
+  padding: 30px 18px;
+  margin-bottom: 34px;
+  transition: background 0.3s, color 0.3s;
 }
-
-body.dark #theme-toggle {
+body.dark section {
   background: var(--card-bg-dark);
   color: var(--text-color-dark);
-  box-shadow: 0 2px 8px var(--card-shadow-dark);
+  box-shadow: 0 4px 20px rgba(80, 110, 160, 0.17);
 }
 
-#theme-toggle:hover {
-  filter: brightness(0.85);
+h2 {
+  color: var(--text-color-light);
+  font-size: 1.4em;
+  margin-bottom: 18px;
+  transition: color 0.3s;
+}
+body.dark h2 {
+  color: var(--text-color-dark);
+}
+
+ul, ol {
+  margin-left: 21px;
 }
 
 @media (max-width: 600px) {
+  header { padding: 19px 13px 8px 13px; }
+  #theme-toggle { right: 12px; top: 14px; font-size: 23px;}
+  nav { font-size: 0.97em; }
+  .container { padding: 0 5px; }
   li.phone-item {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px 18px;
   }
   .phone-icon {
     margin-bottom: 8px;
   }
   .phone-model {
-    font-size: 1.15em;
+    font-size: 1.12em;
     gap: 8px;
+  }
+  section {
+    padding: 22px 7px;
   }
 }
