@@ -85,9 +85,15 @@
   </style>
 </head>
 <body>
-  <div id="header-placeholder"></div>
-
-  <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
+    <div id="header-placeholder"></div>
+    <script>
+    fetch('header.html')
+        .then(r => r.text())
+        .then(t => {
+        document.getElementById('header-placeholder').innerHTML = t;
+        });
+    </script>
+    <script src="theme-toggle.js"></script>
 
   <div class="container">
     <h1>Обо мне</h1>
