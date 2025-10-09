@@ -6,22 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
   <style>
+    html, body {
+        height: 100%;
+    }
+
     body, html {
-      margin: 0; padding: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--bg-light, #f6f7fb);
-      color: var(--text-light, #232946);
-      transition: background 0.3s, color 0.3s;
+        margin: 0; padding: 0;
+        font-family: 'Montserrat', Arial, sans-serif;
+        background: var(--bg-light, #f6f7fb);
+        color: var(--text-light, #232946);
+        transition: background 0.3s, color 0.3s;
     }
+
     body.dark {
-      background: var(--bg-dark, #181829);
-      color: var(--text-dark, #e6eaf3);
+        background: var(--bg-dark, #181829);
+        color: var(--text-dark, #e6eaf3);
     }
+
     .container {
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 12px;
+        max-width: 720px;
+        margin: 40px auto;
+        padding: 0 12px;
+        min-height: 100vh;
+        box-sizing: border-box;
     }
+    
     h1, h2 {
       font-weight: 700;
       margin-bottom: 20px;
