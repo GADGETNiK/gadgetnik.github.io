@@ -6,16 +6,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Обо мне</h1>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="firmwares.html">Сборки Android</a>
-            <a href="phones.html">Мои моб.устройства</a>
-            <a href="pc.html">Мои ПК</a>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
+    <script>
+    fetch('header.html')
+        .then(r => r.text())
+        .then(t => document.getElementById('header-placeholder').innerHTML = t);
+    </script>
     <div class="container">
         <section>
             <h2>Кратко обо мне</h2>
