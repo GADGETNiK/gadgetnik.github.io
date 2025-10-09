@@ -246,6 +246,67 @@
       .about-cards {
         gap: 22px;
       }
+      .social-links-scroll {
+        position: relative;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        }
+
+    .social-links {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--main-color-light) transparent;
+        -webkit-overflow-scrolling: touch;
+        padding: 8px 0;
+        }
+
+    .social-links::-webkit-scrollbar {
+        height: 6px;
+        }
+
+    .social-links::-webkit-scrollbar-thumb {
+        background-color: var(--main-color-light);
+        border-radius: 10px;
+        }
+
+    .scroll-btn {
+        background: var(--card-bg-light);
+        border: none;
+        width: 32px;
+        height: 36px;
+        cursor: pointer;
+        user-select: none;
+        font-size: 24px;
+        line-height: 36px;
+        color: var(--main-color-light);
+        border-radius: 6px;
+        margin: 0 6px;
+        transition: background-color 0.3s;
+        flex-shrink: 0;
+        }
+
+    .scroll-btn:hover,
+    .scroll-btn:focus {
+        background-color: var(--main-label-light);
+        }
+
+    body.dark .social-links {
+        scrollbar-color: var(--main-color-dark) transparent;
+        }
+
+    body.dark .scroll-btn {
+        background: var(--card-bg-dark);
+        color: var(--main-color-dark);
+        }
+
+    body.dark .scroll-btn:hover,
+    body.dark .scroll-btn:focus {
+        background-color: var(--main-label-dark);
+        }
+
     }
   </style>
 </head>
@@ -260,6 +321,8 @@
       <div class="photo-caption">Алексей Севастьянов</div>
       <div class="badge">Энтузиаст</div>
 
+  <div class="social-links-scroll">
+    <button class="scroll-btn left" aria-label="Прокрутить влево">‹</button>
     <div class="social-links">
     <a href="https://vk.com/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="VK" aria-label="VK">
         <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12.001 12.543c.17 0 .517-.486.88-1.123.251-.42.371-.765.394-1.071.012-.171-.072-.256-.255-.256h-.9c-.19 0-.298.126-.367.27-.303.692-1.02 2.056-1.68 2.98-.157.227-.297.4-.405.4-.028 0-.05-.015-.05-.05v-4.187c0-.143.01-.258.026-.31.108-.407.604-.664 1.799-1.004l.044-.011c.115-.026.174-.083.21-.174v-.24c0-.098-.069-.158-.246-.158H8.5c-.136 0-.206.036-.23.156-.14.677-1.504 4.004-2.72 5.6-.29.397-.554.6-.683.6h-.267c-.154 0-.23-.08-.23-.272v-4.21c0-.185.046-.31.124-.317h1.625c.14 0 .23.056.23.184 0 .038-.01.07-.03.1-.068.21-.075.27-.153.49-.07.183-.168.26-.312.26-.146 0-.28-.09-.28-.27 0-.213.273-.943.546-1.55.269-.603.515-.88.74-.88z"/></svg>
@@ -312,6 +375,8 @@
     <a href="https://wormixtest.ru/profile/yourprofile" class="tooltip" target="_blank" rel="noopener" data-tooltip="Wormixtest" aria-label="Wormixtest">
         <svg aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
     </a>
+    <button class="scroll-btn right" aria-label="Прокрутить вправо">›</button>
+    </div>
     </div>
 
     </div>
@@ -365,5 +430,6 @@
   </script>
 
   <script src="theme-toggle.js"></script>
+  <script src="about.js"></script>
 </body>
 </html>
