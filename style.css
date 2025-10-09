@@ -253,3 +253,30 @@ ul, ol {
     padding: 22px 7px;
   }
 }
+.social-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.social-list li {
+  margin-bottom: 8px;
+  padding: 6px 0;
+  font-size: 1.12em;
+  border-bottom: 1px solid #ececec;
+}
+
+.social-list li:last-child {
+  border-bottom: none;
+}
+
+.social-list a {
+  text-decoration: none;
+  color: #2c74d4;
+  transition: color 0.2s;
+}
+
+.social-list a:hover {
+  color: #ff6a00;
+  text-decoration: underline;
+}
