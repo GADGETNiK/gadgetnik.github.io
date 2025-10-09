@@ -1,33 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Моя биография - WAP стиль</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Моя биография</title>
+<style>
+  body {
+    background: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 10px;
+    line-height: 1.4;
+  }
+  a {
+    color: #90caf9;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  nav {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+  }
+  nav a {
+    display: block;
+    padding: 6px 0;
+    border-top: 1px solid #222;
+  }
+  nav a:first-child {
+    border-top: none;
+  }
+  section {
+    margin-bottom: 20px;
+  }
+  h1, h2 {
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    color: #bb86fc;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  strong {
+    color: #cf6679;
+  }
+</style>
 </head>
 <body>
 
 <h1>Моя биография</h1>
 
-<p><a href="#about">Обо мне</a></p>
-<p><a href="#contacts">Контакты</a></p>
-<p><a href="#android">Мои сборки андроид прошивок</a></p>
-<p><a href="#phones">История моих телефонов</a></p>
-<p><a href="#pc">История ПК</a></p>
+<nav>
+  <a href="#about">Обо мне</a>
+  <a href="#contacts">Контакты</a>
+  <a href="#android">Мои сборки андроид прошивок</a>
+  <a href="#phones">История моих телефонов</a>
+  <a href="#pc">История ПК</a>
+</nav>
 
-<hr>
+<section id="about">
+  <h2>Обо мне</h2>
+  <p>Привет! Меня зовут [Ваше имя]. Я увлекаюсь сборкой андроид прошивок и техникой.</p>
+</section>
 
-<h2 id="about">Обо мне</h2>
-<p>Привет! Меня зовут [Ваше имя]. Я увлекаюсь сборкой андроид прошивок и техникой.</p>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p>Email: example@mail.com</p>
+  <p>Телефон: +7 (900) 123-45-67</p>
+</section>
 
-<h2 id="contacts">Контакты</h2>
-<p>Email: example@mail.com</p>
-<p>Телефон: +7 (900) 123-45-67</p>
-
-<h2 id="android">Мои сборки андроид прошивок</h2>
-<ul>
-  <li>Прошивка 1 - <a href="#">Скачать</a></li>
-  <li>Прошивка 2 - <a href="#">Скачать</a></li>
-</ul>
+<section id="android">
+  <h2>Мои сборки андроид прошивок</h2>
+  <p>Здесь вы найдете список моих прошивок и ссылок на них.</p>
+  <ul>
+    <li>Прошивка 1 - <a href="#">Скачать</a></li>
+    <li>Прошивка 2 - <a href="#">Скачать</a></li>
+  </ul>
+</section>
 
 <section id="phones">
   <h2>История моих телефонов</h2>
@@ -59,9 +111,11 @@
   </ul>
 </section>
 
-<h2 id="pc">История ПК</h2>
-<p>ПК 1: Параметры и детали</p>
-<p>ПК 2: Параметры и детали</p>
+<section id="pc">
+  <h2>История ПК</h2>
+  <p>ПК 1: Параметры и детали</p>
+  <p>ПК 2: Параметры и детали</p>
+</section>
 
 </body>
 </html>
