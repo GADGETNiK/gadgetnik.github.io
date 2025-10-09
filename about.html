@@ -7,61 +7,85 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     html, body {
-    height: 100%;
-    margin: 0; padding: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: var(--bg-light, #f6f7fb);
-    color: var(--text-light, #232946);
-    transition: background 0.3s, color 0.3s;
+      height: 100%;
+      margin: 0; padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg-color-light, #f6f7fb);
+      color: var(--text-color-light, #232946);
+      transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
     }
     body.dark {
-    background: var(--bg-dark, #181829);
-    color: var(--text-dark, #e6eaf3);
+      background: var(--bg-color-dark, #181829);
+      color: var(--text-color-dark, #e6eaf3);
     }
-    #header-placeholder {
-    background: transparent;
+    main.container {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 12px 40px 12px;
+      min-height: calc(100vh - 80px);
+      background: transparent;
+      box-sizing: border-box;
     }
-    main, .container, section {
-    background: transparent !important;
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: inherit;
     }
-    h1, h2 { color: inherit; }
-    .profile-image {
-    width: 180px; height: 180px; border-radius: 50%;
-    object-fit: cover; margin-bottom: 28px;
-    box-shadow: 0 4px 18px rgba(30,45,90,0.15);
-    transition: box-shadow 0.3s;
-    user-select: none;
-    display: block;
+    p {
+      font-size: 1.05em;
+      line-height: 1.5;
+      margin-bottom: 16px;
     }
-    body.dark .profile-image {
-    box-shadow: 0 6px 26px rgba(50,70,110,0.7);
+    ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
     }
-    #theme-toggle {
-    position: fixed; top:12px; right:16px;
-    background: none; border: none;
-    font-size: 26px; cursor: pointer;
-    color: var(--main-color-light, #1e40af);
-    transition: color 0.3s; user-select: none; z-index:1000;
+    li {
+      margin-bottom: 8px;
+      font-size: 1em;
     }
-    body.dark #theme-toggle {
-    color: var(--main-color-dark, #a5d8ff);
-    }
-    ul { padding-left: 20px; margin-bottom: 20px; }
-    li { margin-bottom: 8px; font-size: 1em; }
     a {
-    color: var(--main-color-light, #1e40af);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s;
+      color: var(--label-main-color-light, #1e40af);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
     }
     body.dark a {
-    color: var(--main-color-dark, #a5d8ff);
+      color: var(--label-main-color-dark, #a5d8ff);
     }
     a:hover, a:focus {
-    text-decoration: underline;
-    outline: none;
+      text-decoration: underline;
+      outline: none;
     }
-
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(30,45,90,0.15);
+      transition: box-shadow 0.3s;
+    }
+    body.dark .profile-image {
+      box-shadow: 0 6px 26px rgba(50,70,110,0.7);
+    }
+    #theme-toggle {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--label-main-color-light, #1e40af);
+      transition: color 0.3s;
+      user-select: none;
+      z-index: 1000;
+    }
+    body.dark #theme-toggle {
+      color: var(--label-main-color-dark, #a5d8ff);
+    }
   </style>
 </head>
 <body>
